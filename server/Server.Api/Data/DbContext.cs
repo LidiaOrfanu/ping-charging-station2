@@ -10,4 +10,6 @@ using Server.Api.Models;
         }
 
         public DbSet<Location> Locations{ get; set; } = default!;
+
+        public DbSet<ChargingStation> ChargingStations { get; set; } = default!;
     }
