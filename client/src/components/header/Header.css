@@ -1,0 +1,16 @@
+.header {
+    background-color: #0b0606;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; 
+    }
+  
+.logo {
+    max-width: 200px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 25px;
+  }
