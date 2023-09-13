@@ -19,22 +19,22 @@ namespace Server.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Location>>> GetLocation()
         {
-          if (_context.Location == null)
+          if (_context.Locations == null)
           {
               return NotFound();
           }
-            return await _context.Location.ToListAsync();
+            return await _context.Locations.ToListAsync();
         }
 
         // GET: api/Locations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Location>> GetLocation(int id)
         {
-          if (_context.Location == null)
+          if (_context.Locations == null)
           {
               return NotFound();
           }
-            var location = await _context.Location.FindAsync(id);
+            var location = await _context.Locations.FindAsync(id);
 
             if (location == null)
             {
@@ -80,11 +80,11 @@ namespace Server.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Location>> PostLocation(Location location)
         {
-          if (_context.Location == null)
+          if (_context.Locations == null)
           {
               return Problem("Entity set 'DbContext.Location'  is null.");
           }
-            _context.Location.Add(location);
+            _context.Locations.Add(location);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetLocation", new { id = location.LocationId }, location);
@@ -94,17 +94,17 @@ namespace Server.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLocation(int id)
         {
-            if (_context.Location == null)
+            if (_context.Locations == null)
             {
                 return NotFound();
             }
-            var location = await _context.Location.FindAsync(id);
+            var location = await _context.Locations.FindAsync(id);
             if (location == null)
             {
                 return NotFound();
             }
 
-            _context.Location.Remove(location);
+            _context.Locations.Remove(location);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -112,7 +112,7 @@ namespace Server.Api.Controllers
 
         private bool LocationExists(int id)
         {
-            return (_context.Location?.Any(e => e.LocationId == id)).GetValueOrDefault();
+            return (_context.Locations?.Any(e => e.LocationId == id)).GetValueOrDefault();
         }
     }
 }

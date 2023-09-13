@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Microsoft.EntityFrameworkCore;
 using Server.Api.Models;
 
@@ -12,5 +9,5 @@ using Server.Api.Models;
         {
         }
 
-        public DbSet<Server.Api.Models.Location> Location { get; set; } = default!;
+        public DbSet<Location> Locations{ get; set; } = default!;
     }
